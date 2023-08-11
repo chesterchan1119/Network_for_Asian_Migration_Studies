@@ -276,6 +276,7 @@ section#about .about-right{
     justify-content: start;
 }
 .preview-form {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -283,30 +284,48 @@ section#about .about-right{
     border-radius: 10px;
 }
 
-.preview-form:hover {
-    background-color:  rgb(89, 191, 224);
+
+  
+  .preview-form:hover {
+    background-color: rgb(227, 227, 227);
     cursor: pointer;
-}
+  }
+  
+  .preview-form::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: yellow;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .preview-form:hover::after {
+    transform: scaleX(1);
+  }
 .preview h2 {
     margin-top:30px;
 }
 
 .preview h3 {
-  text-decoration: underline;
+    text-decoration: underline;
+    font-size: 20px;
     margin-top:10px;
     font-weight: ligher;
 }
 .preview h4{
     margin: 1px;
+    font-size: 17px;
 }
 
 section#publication .preview-content {
-    margin: 30px;
+    overflow: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+
 }
   
 
@@ -314,6 +333,8 @@ section#publication .preview-form{
     font-style: italic;
     text-align: left;
     border-radius: 0px;
+    min-width: 270px;
+    margin:20px;
 }
 
 section#publication .preview-picture {
@@ -331,6 +352,9 @@ section#event {
     margin:20px;
 }
 
+section#event th{
+    margin-bottom: auto;
+}
 section#event .preview-content{
     overflow: auto;
     display: flex;
@@ -338,7 +362,7 @@ section#event .preview-content{
 
 }
 section#event .preview-form{
-    height: 400px;
+    height: 600px;
     margin:10px;
     min-width: 220px;
     padding:0;
@@ -358,11 +382,8 @@ section#event .preview-picture {
     flex-shrink: 0; /* prevent it from shrinking and maintain its original height. */
 }
 
-.scroll-button {
-    position: absolute; /* Add position absolute */
-    margin-top:30%;
-    right: 40px; /* Position the button on the rightmost side */
-    transform: translateY(-50%); /* Adjust vertical position */
+.scroll-button{
+    position: absolute; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -376,7 +397,15 @@ section#event .preview-picture {
   .scroll-button:hover{
     background-color: #bbfbf0;
   }
+  #scroll-button-1{
+    margin-top:20%;
+    right: 3px;/* Position the button on the rightmost side */
+  }
   
+  #scroll-button-2{
+    margin-top:50%;
+    right: 3px; /* Position the button on the rightmost side */
+  }
   .arrow-icon {
     width: 24px;
     height: 24px;
