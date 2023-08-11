@@ -7,27 +7,42 @@
 		<meta name="keywords" content="Chester Chan, resume">
 		<meta name="author" content="Chester">
 		<title>Research Network</title>
+		
+
+		<!-- Google font package -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Google font types + just add the new font below  -->
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&family=Raleway:wght@200&display=swap" rel="stylesheet">
+		<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css">
 	
 		<link rel="stylesheet" type="text/css" href="./statics/style.css">
 	</head>
 	<body>
 		<header>
-				<nav>
-					<h1><a href="#showcase">Research Network</a></h1>
-
-					<ul>
-						<li><a class="section-main" href="#home">HOME</a></li>
-						<li><a class="section-main" href="#about">ABOUT</a></li>
-						<li><a class="section-main" href="#publication">PUBLICATIONS</a></li>
-                        <li><a class="section-main" href="#event">EVENTS</a></li>
-                        <li><a class="section-main" href="#link">LINKS</a></li>
-						<li><a class="section-main" href="#contact">CONTACT</a></li>
-					</ul>
-				</nav>
+			<nav>
+				<h1><a href="#showcase">NAMS</a></h1>
+			  
+				<ul>
+				<li class="search-bar">
+					<input type="text" placeholder="Search">
+					<button><i class="fas fa-search"></i></button>
+				  </li>
+				  <li ><a class="section-main" href="/">HOME</a></li>
+				  <li><a class="section-main" href="#about">ABOUT</a></li>
+				  <li><a class="section-main" href="#publication">PUBLICATIONS</a></li>
+				  <li><a class="section-main" href="#event">EVENTS</a></li>
+				  <li><a class="section-main" href="#link">LINKS</a></li>
+				  <li><a class="section-main" href="#contact">CONTACT</a></li>
+				 
+				</ul>
+			  </nav>
 	
 		</header>
 
@@ -81,10 +96,29 @@
 
 
 		<section id="event" class="preview">
+			<script>
+				function scrollPreviewContent() {
+					const previewContent = document.querySelector('#event .preview-content');
+					const scrollStep = 10; // The distance to scroll in each animation frame
+					let scrollAmount = 0; // The current scroll amount
+					
+					function scrollStepFrame() {
+						scrollAmount += scrollStep;
+						previewContent.scrollLeft += scrollStep;
+						
+						if (scrollAmount < 150) {
+						requestAnimationFrame(scrollStepFrame);
+						}
+					}
+					
+					scrollStepFrame();
+					}
+				</script>
 		<h2 class="box-title">Events</h2>
 		  <hr class="hr-yellow">
+		  <h3>Workshop and conference</h3>
 		  <div class="preview-content">
-
+			
 			<div class="preview-form" >
 			  <img class="preview-picture" src="./statics/images/scholarly_event.jpeg" alt=""  onclick="location.href =''">
 			  <div class="preview-description"> 
@@ -165,12 +199,106 @@
 					}
 			  </script>
 		</div>
+
 		<div class="scroll-button" onclick="scrollPreviewContent()">
 			<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 			  <path d="M0 0h24v24H0z" fill="none"/>
 			  <path d="M10 17l5-5-5-5v10z"/>
 			</svg>
+		</div>
+		  	
+		
+		<h3>Seminar and talk</h3>
+		<div class="preview-content">
+			<div class="preview-form" >
+			  <img class="preview-picture" src="./statics/images/scholarly_event.jpeg" alt=""  onclick="location.href =''">
+			  <div class="preview-description"> 
+			
+			  <table>
+				<tr><th>Topic:</th><td style="color: orange">New Chinese Capitals and Migrations in Southeast Asia in the Post-pandemic
+					Era</td></tr>
+
+				<tr><th>Date:</th><td>23 June 2023</td></tr>
+			  </table>
+				</div>
+			</div>
+
+			<div class="preview-form" >
+				<img class="preview-picture" src="./statics/images/social_engagement.jpeg" alt="">
+				<div class="preview-description"> 
+				<table>
+				  <tr><th>Topic:</th><td style="color: orange">In search of greener pastures? Migration discourses, drivers and dynamics in the
+					new Hong Kong exodus</td></tr>
+  
+				  <tr><th>Date:</th><td>5 December 2022</td></tr>
+		
+				</table>
+				  </div>
+			  </div>
+			  <div class="preview-form" >
+				<img class="preview-picture" src="./statics/images/publications.jpeg" alt="" >
+				<div class="preview-description"> 
+				<table>
+				  <tr><th>Topic:</th><td style="color: orange">Dummy - reading week</td></tr>
+  
+				  <tr><th>Date:</th><td>11 November 2022</td></tr>
+		
+				</table>
+				  </div>
+			  </div>
+			  <div class="preview-form" >
+				<img class="preview-picture" src="./statics/images/social_engagement.jpeg" alt="" >
+				<div class="preview-description"> 
+				<table>
+				  <tr><th>Topic:</th><td style="color: orange">In search of greener pastures? Migration discourses, drivers and dynamics in the
+					new Hong Kong exodus</td></tr>
+  
+				  <tr><th>Date:</th><td>5 December 2022</td></tr>
+		
+				</table>
+				  </div>
+			  </div>
+			  <div class="preview-form" >
+				<img class="preview-picture" src="./statics/images/social_engagement.jpeg" alt="">
+				<div class="preview-description"> 
+				<table>
+				  <tr><th>Topic:</th><td style="color: orange">In search of greener pastures? Migration discourses, drivers and dynamics in the
+					new Hong Kong exodus</td></tr>
+  
+				  <tr><th>Date:</th><td>5 December 2022</td></tr>
+		
+				</table>
+				  </div>
+			  </div>
+			 
+			  <script>
+				function scrollPreviewContent() {
+					const previewContent = document.querySelector('#event .preview-content');
+					const scrollStep = 10; // The distance to scroll in each animation frame
+					let scrollAmount = 0; // The current scroll amount
+					
+					function scrollStepFrame() {
+						scrollAmount += scrollStep;
+						previewContent.scrollLeft += scrollStep;
+						
+						if (scrollAmount < 150) {
+						requestAnimationFrame(scrollStepFrame);
+						}
+					}
+					
+					scrollStepFrame();
+					}
+			  </script>
+		</div>
+
+		<div class="scroll-button" onclick="scrollPreviewContent()" style=" margin-top:30%;">
+			<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			  <path d="M0 0h24v24H0z" fill="none"/>
+			  <path d="M10 17l5-5-5-5v10z"/>
+			</svg>
 		  </div>
+	 
+		</div>
 			 <a href="" style="margin-left:auto; color:rgb(27, 174, 174)">>>>Learn more</a>
   </section>
 
@@ -185,7 +313,7 @@
 		
 				
 				</div>
-				<div class="about-right">
+				<div class="about-right container">
 					
 						<dl>This network aims to connect people and researchers with interest and expertise
                             in Asian migration studies. We welcome both institutional and independent
@@ -202,7 +330,7 @@
 		<section id="contact">
 			<div class = "contact-inner">
 				
-				<h2 class="box-title">CONTACT ME</h2>
+				<h2 class="box-title">Contact Us</h2>
 
 				<hr class="hr-yellow">
 				<form method = "post" action = "">
@@ -210,7 +338,7 @@
 					<div class="form-nb-container">
 						
 						<div class="form-left">
-							<h3>Any enquires / collaboration</h3>
+							<h3>Feel free to tell us your enquires</h3>
 						</div>
 						<div class="form-right">
 							<input type="text" id="name" placeholder="Your Name*">
@@ -230,7 +358,7 @@
 
 		<footer>
 			<div class="nb-container">
-				<p>Copyright &copy; 2023 - Dr. Chan Yuk Wah</p>
+				<p>Copyright &copy; 2023 - Network for Asian Migration Studies</p>
 			</div>
 			<div class="icon"> 
 				<i class="fab fa-github-square fa-2x" onclick="location.href=''"></i>
