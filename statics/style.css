@@ -40,6 +40,37 @@ body {
 }
 
 
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; /* reduce padding */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* reduce font size */
+    width: 150px;
+  }
+  
+  .btn:hover {
+    background-color: #0069d9;
+  }
+  
+  .btn-danger {
+    background-color: hsl(0, 100%, 50%);
+  }
+  
+  .btn-danger:hover {
+    background-color: hsl(0, 98%, 39%);
+  }
+  
+  .btn-secondary {
+    background-color: hsl(127, 65%, 51%);
+  }
+  
+  .btn-secondary:hover {
+    background-color: hsl(127, 59%, 39%);
+  }
+
 .hr-yellow {
     height: 30px; /* Adjust the height as needed */
     background-color: yellow; /* Set the color for the first 30% */
@@ -48,6 +79,36 @@ body {
     margin: 0; /* Remove any margin */
 
 }
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 6; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+  }
+  
+  
+  /* The Modal Close Button (x) */
+  .close {
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #f44336;
+    cursor: pointer;
+  }
 
 .search-bar {
     display: flex;
@@ -411,6 +472,25 @@ section#event .preview-picture {
     height: 24px;
     fill: #333;
   }
+
+
+
+section#joinUs {
+    min-height: 650px;
+    background-image: url('../statics/images/migration.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+}
+#add-form-wrapper{
+    color: black;
+}
+#add-form-wrapper .container{
+    width: 50%;
+}
 
 /* Contact Session */
 section#contact {

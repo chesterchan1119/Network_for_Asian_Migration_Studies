@@ -15,8 +15,9 @@
 		<!-- Google font types + just add the new font below  -->
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&family=Raleway:wght@200&display=swap" rel="stylesheet">
+		
 		<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -356,7 +357,149 @@
 				</div>
 			</div>
 		</section>
+		
+		<section id="joinUs">
+			<div class="nb-container">	
+				<div class="boxes-title">
+				<h2>Join Us</h2>
+				<button type="button" id="add-button" class="btn btn-secondary">Join Us</button>
+			</div>
+		</div>
+		
+			
+		<div class="modal" id="add-form-wrapper" style="display:none;">
+			<div class="container">
+			  <span class="close" style="color:black;font-size:60px" title="Close Modal" onclick="closeSubWindow()">×</span>
+			  <form id="add-form">
+				<!-- First row -->
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3">
+					<label for="name" class="form-label">Name</label>
+				  </div>
+				  <div class="col-md-9">
+					<input type="text" class="form-control" id="model">
+				  </div>
+				</div>
+		  
+				<!-- Second row -->
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3">
+					<label for="email" class="form-label">Email</label>
+				  </div>
+				  <div class="col-md-9">
+					<select id="environment-select" name="Environment" disabled onchange="checkDCEnvInputs();">
+					  <option value="" selected disabled>Select an environment</option>
+					</select>
+				  </div>
+				</div>
+		  
+				<!-- Remaining rows -->
+				<!-- Add similar row structures for each label-input pair -->
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3">
+					<label for="department" class="form-label">Department</label>
+				  </div>
+				  <div class="col-md-9">
+					<input type="text" class="form-control" id="switch-model">
+				  </div>
+				</div>
+		  
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3">
+					<label for="phoneNumber" class="form-label">Phone Number</label>
+				  </div>
+				  <div class="col-md-9">
+					<input type="text" class="form-control" id="phoneNumber">
+				  </div>
+				</div>
+		  
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3">
+					<label for="hostname" class="form-label">Hostname</label>
+				  </div>
+				  <div class="col-md-9">
+					<input type="text" class="form-control" id="hostname">
+				  </div>
+				</div>
+		  
+				<div class="row mb-3 align-items-center">
+				  <div class="col-md-3 ">
+					<label for="status" class="form-label">Status</label>
+				  </div>
+				  <div class="col-md-9">
+					<input type="text" class="form-control" id="status">
+				  </div>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			  </form>
+			</div>
+		
+		  </div>
+		
+			<script>
 
+				function closeSubWindow(index){
+						const add_form = document.getElementById(`add-form-wrapper`)
+						add_form.style.display = 'none';
+				}
+						const addButton = document.getElementById('add-button');
+						const addForm = document.getElementById('add-form-wrapper');
+						addButton.addEventListener('click', () => {
+						addForm.style.display = addForm.style.display === 'none' ? 'block' : 'none';
+
+						});
+
+						
+						const form = document.getElementById("add-form");
+					
+						form.addEventListener('submit', async (event) => {
+						event.preventDefault();
+
+						const token = await getToken();
+						const username = await getUsername();
+
+						const requestBody = {
+							"username": username,
+							"token": token,
+							"data_center": document.getElementById('data-center-select').value,
+							"environment": document.getElementById('environment-select').value,
+							"switch_Model": document.getElementById('model').value,
+							'S/N': document.getElementById('sn').value,
+							"hostname": document.getElementById('hostname').value,
+							"status": document.getElementById('status').value
+						};
+
+						try {
+							await addItem(requestBody);
+							console.log('Record added');
+							addForm.style.display = 'none';
+							retrieveInventory();
+						} catch (error) {
+							console.error('Error adding record:', error);
+						}
+						});
+
+						async function addItem(requestBody) {
+						const response = await fetch('/addItem', {
+							method: 'POST',
+							headers: {
+							'Content-Type': 'application/json',
+							},
+							body: JSON.stringify(requestBody),
+						});
+				
+
+						if (!response.ok) {
+							throw new Error('Failed to add record');
+						}
+
+						const data = await response.json();
+						window.alert(data.message)
+						return data;
+						}
+
+			</script>
+		</section>
 
 
 		<section id="contact">
