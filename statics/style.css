@@ -6,6 +6,7 @@ body {
     margin: 0px;
     /* scroll-behavior: smooth; */
     font-family: "Poppins", sans-serif;
+    background-color: #f4faff;
     
 }
 
@@ -20,6 +21,7 @@ body {
     text-align: center;
     width: 100%;
 }
+/* general container */
 .container {
     background-color: #fff;
     border-radius: 10px;
@@ -72,9 +74,9 @@ body {
   }
 
 .hr-yellow {
-    height: 30px; /* Adjust the height as needed */
-    background-color: yellow; /* Set the color for the first 30% */
-    background-image: linear-gradient(to right, rgb(255, 200, 0) 30%, black 30%); /* Create a gradient from yellow to black */
+    height: 90px; /* Adjust the height as needed */
+    background-color: rgb(48, 127, 255); /* Set the color for the first 30% */
+    background-image: linear-gradient(to right, rgb(60, 166, 227) 30%, black 30%); /* Create a gradient from yellow to black */
     border: 30px; /* Remove the default border */
     margin: 0; /* Remove any margin */
 
@@ -99,9 +101,9 @@ body {
     position: absolute;
     right: 35px;
     top: 15px;
-    font-size: 40px;
     font-weight: bold;
-    color: #f1f1f1;
+    color:black;
+    font-size:60px;
   }
   
   .close:hover,
@@ -117,6 +119,7 @@ body {
   
 .search-bar input {
     width: 300px;
+    min-width: 100px;
     padding: 6px;
     border: none;
     border-radius: 4px;
@@ -137,54 +140,62 @@ body {
   .search-bar button i:hover {
     color: #7cc4ff;
   }
-header {
+  header {
     background-color: #d3cfafd6;
     position: fixed;
     width: 100%;
     z-index: 4;
-}
-header a {
+  }
+  header img{
+    max-height: 90px;
+    max-width: 300px;
+    height:inherit;
+  }
+  
+  header a {
     color: #0e0e0e;
     text-decoration: none;
+  }
   
-}
+  header li:hover {
+    cursor: pointer;
+  }
+  
 
-header li { padding: 0px; }
-
-header nav {
+  header nav {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; /* Add this line to create space between h1 and the menu icon */
     text-align: center;
-    line-height: 70px;
+    /* line-height: 60px; */
     width: 100%;
-}
-
-header h1 {
+    font-size:relative; 
+  }
+  
+  header h1 {
     margin: 20px;
     padding: 0px;
-    /* justify-content: left; */
     font-family: 'Raleway', sans-serif;
-}
-header h1 a{
+  }
+  
+  header h1 a {
     color: rgb(39, 66, 101);
-}
-
-header ul {
+  }
+  
+  header ul {
     list-style: none;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: auto;
-}
-
-    
-header nav ul {
-    display: none; /* menu should be hidden on mobile */
-    margin-bottom: -15px;  /* suck up the bottom of the <header> by 15px, so it looks like the menu doesn't have extra margin */
-}
+    font-weight: lighter;
+  }
+  
+  .menu-icon {
+    display: none; /* Hide the menu icon by default */
+  }
+  
 
 section#showcase {
     min-height: 650px;
@@ -239,24 +250,8 @@ section#showcase .nb-container {
     font-style: italic;
     font-size: 10px;
 }
-.button {
-    background-color: rgb(51, 200, 128);
-    font-family: "Montserrat", sans-serif;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 15px 15px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 80px ;
-    display: inline-block;
-    font-size: 12px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-.button:hover{
-    background-color: rgb(67, 237, 155);
-}
+
+
 
 
 
@@ -296,24 +291,18 @@ section#about .about-nb-container h3 {
 }
 
 section#about .about-left{
-    width: 30%;
+   width:relative;
     text-align: center;
     justify-self:center ;
 }
-section#about .about-left h3 {
-    font-size: 20px;
-    margin-bottom:5px;
-  
-}
-section#about .about-left ul {
-    list-style-type: none;
-    padding: 0px;
-    margin-top: 0px;
-}
+
 
 section#about .about-right h3 {
     font-size: 20px;
     margin-bottom:10px;
+}
+section#about img {
+    width: 80%;
 }
 
 section#about .about-right dl{
@@ -337,12 +326,14 @@ section#about .about-right{
     justify-content: start;
 }
 .preview-form {
+
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    box-shadow: 0px 12px 18px -6px rgba(34, 56, 101, 0.04);
 }
 
 
@@ -359,7 +350,7 @@ section#about .about-right{
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: yellow;
+    background-color: rgb(97, 223, 255);
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
   }
@@ -369,44 +360,76 @@ section#about .about-right{
   }
 .preview h2 {
     margin-top:30px;
+    font-size: 30px;
 }
-
-.preview h3 {
-    text-decoration: underline;
-    font-size: 20px;
-    margin-top:10px;
-    font-weight: ligher;
+.preview h3{
+    font-size: 23px;
 }
 .preview h4{
-    margin: 1px;
     font-size: 17px;
+}
+
+.type-header{
+    text-decoration: underline;
+    font-size: 17px;
+    margin-top:10px;
+    font-weight: ligher;
+    margin-left: 10px;
+}
+
+.category-tag{
+    margin-top: 10px;
+    top:0;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: rgb(62, 176, 239);
 }
 
 section#publication .preview-content {
     overflow: auto;
     display: flex;
     flex-direction: row;
-
+    
 }
-  
 
 section#publication .preview-form{  
-    font-style: italic;
-    text-align: left;
+    
     border-radius: 0px;
     min-width: 270px;
     margin:20px;
+    max-width: 320px;
+  
 }
 
 section#publication .preview-picture {
     width: 100%;   
     height:100% ;
-    max-height: 390px;
+    max-height: 330px;
 
 }
+/* The entire description session */
 section#publication .preview-description{
-    min-height: 150px;
+    min-height: 200px;
+    padding: 22px;
+    text-align: left;
+    position: relative;
 }
+/* publication title */
+section#publication .preview-description h4{
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+/* publication author */
+section#publication .preview-description p{
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    font-size: 12px;
+
+}
+
 
 
 section#event {
@@ -417,24 +440,36 @@ section#event th{
     margin-bottom: auto;
 }
 section#event .preview-content{
-    overflow: auto;
+    overflow-x: auto;
     display: flex;
     flex-direction: row;
 
 }
 section#event .preview-form{
     height: 600px;
-    margin:10px;
-    min-width: 220px;
     padding:0;
-    display: flex;
-    flex-direction: column;
-    
+    border-radius: 0px;
+    min-width: 270px;
+    margin:20px;
+    max-width: 350px;
 }
 section#event .preview-description{
+    min-height: 200px;
+    padding: 22px;
+    text-align: left;
+    position: relative;
     min-height: 150px;
     flex-grow:1; /* allow it to grow and take up any remaining space in the .preview-form. */
 }
+
+section#event .preview-description p{
+   padding: 0px;
+   margin: 0px;
+}
+section#event .preview-description p{
+    padding: 0px;
+    margin: 0px;
+ }
 section#event .preview-picture {
     width: 100%;   
     height:50% ;
@@ -476,21 +511,23 @@ section#event .preview-picture {
 
 
 section#joinUs {
-    min-height: 650px;
-    background-image: url('../statics/images/migration.jpg');
+    min-height: 350px;
+    background-image: url('../statics/images/joinUsBg.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
-    color: #ffffff;
+    color: #040404;
     display: flex;
     flex-direction: row;
+}
+section#joinUs h2{
+    font-weight: lighter;
+    font-family: "Palatino", Georgia, 'Times New Roman', Times, serif;
 }
 #add-form-wrapper{
     color: black;
 }
-#add-form-wrapper .container{
-    width: 50%;
-}
+
 
 /* Contact Session */
 section#contact {
@@ -579,8 +616,7 @@ textarea[type=textarea], select {
     width: 70%;
     padding: 10px;
     margin:20px 0px 20px 60px;
-    font-family:Times New Roman;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 .submit{
@@ -625,99 +661,146 @@ footer .icon :hover{
 
 /* handling multi media platform or devices */
     
-@media (max-width: 600px ) and (min-width:200px){
-    /* textarea {
-        max-width: inherit;
-    } */
-
-    .nb-container {
+@media (max-width: 749px ) and (min-width:200px){
+    #add-form-wrapper .container{
+        width:80%;
+    }
+    #add-form 
+    {
+      font-size: 12px;
+    }
+    #add-form input, select
+    { 
+    font-size: 12px;
+     height:30px;
+      width:100%;
+      margin:0px;
+      padding:3px;
+    }
+    .modal {
+        width: 100%;
+    }
+    .close{
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-weight: bold;
+        color:rgb(0, 0, 0);
+        font-size:30px;
+    }
+        
+         
+    section#about .about-nb-container{
+        display: flex;
         flex-direction: column;
     }
-
-    section#about .about-item-left{
+    section#about img {
+        width: 60%;
+    }
+    .menu-icon {
+        display: block;
+        font-size: 24px;
+        margin-right: 20px;
+      }
+      header nav{
+        margin:0px;
+        padding: 0px;
+      }
+      header nav ul {
+        display: none;
+      }
+      #menu-toggle{
+        display:none;
+      }
+      /* Show the menu items when the menu icon is checked */
+      #menu-toggle:checked ~ ul {
         display: flex;
-        justify-content: start;
-        flex-direction: row-reverse;
+        flex-direction: column;
+        align-items: center;
+        background-color: #d3cfafd6;
+        position: absolute;
+        top: 60px;
+        left: 0;
         width: 100%;
-        text-align: left;
-        min-height: 300px;
+        padding: 5px;
+      }
+      
+      /* Styling for the mobile menu items */
+      #menu-toggle:checked ~ ul li {
+        margin: 5px 0;
+      }
+    
+    .menu-icon {
+        display: block;
+        font-size: 24px;
+        margin-right: 20px;
+      }
+}
+@media (max-width: 1006px ) and (min-width: 750px) {
+    nav ul a {
+       font-size: 11px;
+       padding: 0px; 
+       display: flex;
+       flex-direction: row; 
+       justify-content:center;
+       margin:0px; 
     }
-    section#about .about-item-right{
-        display: flex;
-        justify-content: start;
-        width: 100%;
-        text-align: left;
-        min-height: 300px;
-
-    }
-    section#about .about-description{
-        width: 100%;
-    }
-    section#about h4 {
-        font-weight: bolder; 
-        font-family: "Montserrat", sans-serif;
-        /* margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 0px; */
-        margin: 0px 20px 50px 150px ;
-    }
-    section#about p {
-        /* margin-left: 50px;
-        margin-right: 50px;
-        margin-top: 20px; */
-        margin: 0px 20px 50px 150px ;
-    }
-
 }
 
-/* set the styles for the non-mobile menu */
-@media only screen and (min-width: 600px) {
     
-    .nb-container {
-        flex-direction: row;
+@media only screen and (min-width: 750px) {
+    #add-form-wrapper .container{
+        width:70%;
+        font-size: 14px;
     }
-    /* make the nav block size automatically rather than 100% */
-    nav { width: auto;  }
-    nav label  { display: none; }
-        
-    /* snug the nav bar up to the right edge */
-    header nav { margin-right: 0px; }
-    
-    /* make the menu horizontal again */
+
+    #add-form input, select{ 
+        font-size: 100%;
+        font-weight: lighter;
+        height:auto;
+        width:100%;
+        margin:0px;
+    }
+    .modal {
+        width: 100%;
+    }
+    .close{
+        position: absolute;
+        right: 35px;
+        top: 15px;
+        font-weight: bold;
+        color:rgb(0, 0, 0);
+        font-size:30px;
+    }
+
+    /* add some more padding for links on large tablets/desktop */
     header nav ul { 
         display: flex;
         flex-direction: row; 
+        justify-content: space-between;
+        margin: 0 0px; 
+        padding: 0;
     }
-    /* undo the mobile menu styling */
+ 
     nav ul a {
-    border-top: 0px;
-    margin: 10px;
-    padding: 0 5px; /* need to have only a bit of padding for small tablets in portrait mode */
-    min-width: 20px;
-    white-space: nowrap; /* don't let it open a new line*/
-    }
-    header nav ul { margin-bottom: 0px; }
-    /* expand out the header to almost full width */
-    header .nb-container { width: 95%; }
-    header .nb-container #branding { width: auto; }
-}
-
-    
-@media only screen and (min-width: 1000px) {
-    /* add some more padding for links on large tablets/desktop */
-    nav ul a {
-    padding: 0 20px;
+        flex-grow: 1;
+        border-top: 0px;
+        padding: 0 15px; 
+        white-space: nowrap; /* don't let it open a new line*/
     }
     /* restore the header nb-container width */
-    header .nb-container { 
-        width: 80%;
-     }
-    .preview-content {
-               
+    header nav{ 
+        width: 100%;
+        padding:0px;
+    }
+     #menu-toggle{
+        display:none;
+      }
+
+    .preview-content {        
         flex-direction: row;
     } 
     .preview-form {
-        
         width: 28%;
     }
 }
