@@ -3,102 +3,181 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<meta name="decription" content="Dr.Chan Personal Website">
-		<meta name="keywords" content="Chester Chan, resume">
-		<meta name="author" content="Chester">
-		<title>Research Network</title>
+		<meta name="decription" content="NAMS">
+	
+		<title>Research Network/Events</title>
+		<!-- Google font package -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Google font types + just add the new font below  -->
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&family=Raleway:wght@200&display=swap" rel="stylesheet">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
+	<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css">
 	
+	<!--My CSS-->
 		<link rel="stylesheet" type="text/css" href="../statics/style.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../statics/style.css') }}">
 	</head>
 	<body>
-		<header id="top">
-				<nav>
-				
-					<h1><a href="#showcase">Research Network</a></h1>
-
-					<ul>
-						<li><a class="section-main" href="#home">HOME</a></li>
-						<li><a class="section-main" href="#about">ABOUT</a></li>
-						<li><a class="section-main" href="#publication">PUBLICATIONS</a></li>
-                        <li><a class="section-main" href="#event">EVENTS</a></li>
-                        <li><a class="section-main" href="#link">LINKS</a></li>
-						<li><a class="section-main" href="#contact">CONTACT</a></li>
-					</ul>
-				</nav>
+		<header>
+			<nav>
+				<!-- <h1><a href="#showcase">NAMS</a></h1> -->
+				<img src="./statics/images/namsIcon.jpeg" alt="" >
+				<input type="checkbox" id="menu-toggle">
+    			<label for="menu-toggle" class="menu-icon">&#9776;</label>
+				<ul>
+				<li class="search-bar">
+					<input type="text" placeholder="Search">
+					<button><i class="fas fa-search"></i></button>
+				  </li>
+				  <li ><a class="section-main" href="/">HOME</a></li>
+				  <li><a class="section-main" href="/about">ABOUT</a></li>
+				  <li><a class="section-main" href="/publication">PUBLICATIONS</a></li>
+				  <li><a class="section-main" href="/event">EVENTS</a></li>
+				  <li><a class="section-main" href="#link">LINKS</a></li>
+				  <li><a class="section-main" href="/#contact">CONTACT</a></li>
+				 
+				</ul>
+			  </nav>
 	
 		</header>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+    <br>
+    <br>
+    <br>
+    <br>
+	<style>
+		/* section#publication .box-title{
+			text-align: center;
+			font-size: 50px;
+		} */
+		.preview h2 {
+		  margin: 20px;
+		  min-width: 0px;
+		  font-family: inherit;
+		  font-weight: 700;
+		  font-size: 50px;
+		  max-width: 80%;
+		  color: rgb(90, 191, 206);
+		}
+		.section-des{
+		  box-sizing: border-box;
+		  margin: 20px;
+		  margin-right:30px;
+		  min-width: 0px;
+		  font-family: "Galano Grotesque", "Noto Sans TC", "Noto Sans JP", -apple-system, ".SFNSText-Regular", "San Francisco", BlinkMacSystemFont, Roboto, "Segoe UI", Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", "Lucida Grande", sans-serif;
+		  line-height: 1.375rem;
+		  font-weight: 400;
+		  font-size: 0.87rem;
+		  max-width: 452px;
+		  white-space: pre-line;
+		  color: rgb(48, 52, 54);
+		}
+		.page-pic{
+		  background-repeat: no-repeat;
+		  background-position: center center;
+		  border-radius: 10px;
+		  align-self: stretch;
+		  position: relative;
+		  margin-right: auto;   
+		  /* Align the picture to the left */
+		}
+	 </style>
+    <section id="event" class="preview">
+		<div style="width:100%; align-items: center;  display: flex; flex-direction: row;margin-left: auto; overflow: auto">
+			<div style="display: flex; flex-direction: column; margin-left:auto;">
+			  <h2 class="type-header">Events</h2>
+			  <p class="section-des">Here is your gateway to a vibrant and collaborative space dedicated to the exploration and understanding of Asian migration. This platform brings together scholars, researchers, practitioners, and policymakers who are passionate about examining the multifaceted dimensions of migration in the Asian context. Through our events, we aim to foster dialogue, share knowledge, and promote interdisciplinary collaboration among experts from various disciplines. From insightful panel discussions to thought-provoking keynote speeches, our events provide a platform to delve into critical issues such as immigration policies, cultural integration, labor markets, and social dynamics. Join us as we engage in meaningful conversations, advance research frontiers, and strive to make a positive impact on migration studies in Asia. Together, let's build bridges of knowledge and understanding in the fascinating realm of Asian migration.</p>
+		   </div>
+	   
+		 <img class="page-pic" src="./statics/images/event page pic.avif" alt="" >
+	  </div>
+	  <br>
+	  
+	  <br>
+			  <hr class="hr-yellow">
+	
+		  	<div class="preview-content">
+				<!-- Migration & Citizenship Pathways in Asia -->
+				<div class="preview-form" >
+					<img class="preview-picture" src="./statics/images/Migration & Citizenship Pathways in Asia.png" alt=""  onclick="location.href =''">
+					<div class="preview-description"> 
+						<p class="category-tag">Events</p>
+						<p style="font-weight: bold;">Topic:</p>
+						<h4 style="color: orange">Migration & Citizenship Pathways in Asia</h4>
 
-        <section id="event" class="preview">
-          <h2 class="box-title">Events</h2>
-            <hr class="hr-yellow">
-            <div class="preview-content">
-      
-            <div class="preview-form" >
-              <img class="preview-picture" src="../statics/images/scholarly_event.jpeg" alt=""  onclick="location.href ='https://github.com/chesterchan1119/Inventory-Application-with-Android-Studio'">
-              <div class="preview-description"> 
-            
-              <table>
-              <tr><th>Topic:</th><td style="color: orange">New Chinese Capitals and Migrations in Southeast Asia in the Post-pandemic
-                Era</td></tr>
-      
-              <tr><th>Date:</th><td>23 June 2023</td></tr>
-              <tr><th>Venue:</th><td>Online Conference, City University of Hong Kong</td></tr>
-              <tr><th>Description:</th><td>In search of greener pastures? Migration discourses, drivers and dynamics in the
-                new Hong Kong exodus</td></tr>
-              </table>
-            
-            
-              
-              </div>
-            </div>
-      
-            <div class="preview-form" >
-              <img class="preview-picture" src="../statics/images/scholarly_event.jpeg" alt=""  onclick="location.href ='https://github.com/chesterchan1119/Inventory-Application-with-Android-Studio'">
-              <div class="preview-description"> 
-              
-              <table>
-                <tr><th>Topic:</th><td style="color: orange">New Chinese Capitals and Migrations in Southeast Asia in the Post-pandemic
-                  Era</td></tr>
-        
-                <tr><th>Date:</th><td>23 June 2023</td></tr>
-                <tr><th>Venue:</th><td>Online Conference, City University of Hong Kong</td></tr>
-                <tr><th>Description:</th><td>In search of greener pastures? Migration discourses, drivers and dynamics in the
-                  new Hong Kong exodus</td></tr>
-              </table>
-              
-              
-                
-                </div>
-              </div>
-              <div class="preview-form" >
-              <img class="preview-picture" src="../statics/images/scholarly_event.jpeg" alt=""  onclick="location.href ='https://github.com/chesterchan1119/Inventory-Application-with-Android-Studio'">
-              <div class="preview-description"> 
-              
-              <table>
-                <tr><th>Topic:</th><td style="color: orange">New Chinese Capitals and Migrations in Southeast Asia in the Post-pandemic
-                  Era</td></tr>
-        
-                <tr><th>Date:</th><td>23 June 2023</td></tr>
-                <tr><th>Venue:</th><td>Online Conference, City University of Hong Kong</td></tr>
-                <tr><th>Description:</th><td>In search of greener pastures? Migration discourses, drivers and dynamics in the
-                  new Hong Kong exodus</td></tr>
-              </table>
-              
-              
-                
-                </div>
-              </div>
-      
-      
-            </div>
-        </section>
+						<p style="font-weight: bold;">Date:</p>
+						<p>21-22 Sep 2023</p>
+						<p style="font-weight: bold;">Organizers:</p>
+						<p>Asia Research Institute, National University of Singapore</p>
+			
+					</div>
+				</div>
+				<div class="preview-form" >
+					<img class="preview-picture" src="./statics/images/The Lives of Migrant Remittances Challenging the Migration and Development Nexus.png" alt=""  onclick="location.href =''">
+					<div class="preview-description"> 
+					  <p class="category-tag">Events</p>
+					  <p style="font-weight: bold;">Topic:</p>
+					  <h4 style="color: orange">The Lives of Migrant Remittances: Challenging the Migration and Development Nexus</h4>
+	  
+					  <p style="font-weight: bold;">Date:</p>
+					  <p>6 Sept 2023</p>
+					  <p style="font-weight: bold;">Organizers:</p>
+					  <p>Prof. Denise Spitzer, University of Alberta</p>
+					  </div>
+				</div>
+				<div class="preview-form" >
+					<img class="preview-picture" src="./statics/images/In Search of greener pastures.png" alt="">
+					<div class="preview-description"> 
+						<p class="category-tag">Events</p>
+							<p style="font-weight: bold;">Topic:</p>
+							<h4 style="color: orange">In search of greener pastures? Migration discourses, drivers and dynamics in the
+								new Hong Kong exodus</h4>
+	
+							<p style="font-weight: bold;">Date:</p>
+							<p>5 December 2022</p>
+							<p style="font-weight: bold;">Organizers:</p>
+							<p>Yvette To, Yuk Wah Chan</p>
+				
+					  </div>
+				  </div>
+	
+				<div class="preview-form" >
+					<img class="preview-picture" src="./statics/images/International Workshop New Chinese Capitals.png" alt=""  onclick="location.href =''">
+					<div class="preview-description"> 
+						<p class="category-tag">Events</p>
+						<p style="font-weight: bold;">Topic:</p>
+						<h4 style="color: orange">New Chinese Capitals and Migrations in Southeast Asia in the Post-pandemic
+							Era</h4>
+
+						<p style="font-weight: bold;">Date:</p>
+						<p>23 June 2023</p>
+						<p style="font-weight: bold;">Organizers:</p>
+						<p>Dr. Yuk Wah Chan, Dr. Chow Bing Ngeow</p>
+			
+					</div>
+				</div>
+
+			 
+			</div>	
+		</div>
+  </section>
+
+  <footer>
+	<div class="nb-container">
+	  <p>Copyright &copy; 2023 - Network for Asian Migration Studies</p>
+	</div>
+	<div class="icon"> 
+	  <i class="fab fa-github-square fa-2x" onclick="location.href=''"></i>
+	  <i class="fab fa-brands fa-linkedin fa-2x" onclick="location.href=''"></i>
+	</div>
+	
+  </footer>
+  </body>
+   
+ 

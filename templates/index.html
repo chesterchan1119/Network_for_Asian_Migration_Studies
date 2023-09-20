@@ -4,8 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="decription" content="">
-		<meta name="keywords" content="Chester Chan, resume">
-		<meta name="author" content="Chester">
 		<title>Research Network</title>
 		
 		<!-- Google font package -->
@@ -25,6 +23,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css">
 	
+	<!--My CSS-->
 		<link rel="stylesheet" type="text/css" href="../statics/style.css">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../statics/style.css') }}">
 	</head>
@@ -41,9 +40,9 @@
 					<button><i class="fas fa-search"></i></button>
 				  </li>
 				  <li ><a class="section-main" href="/">HOME</a></li>
-				  <li><a class="section-main" href="#about">ABOUT</a></li>
-				  <li><a class="section-main" href="#publication">PUBLICATIONS</a></li>
-				  <li><a class="section-main" href="#event">EVENTS</a></li>
+				  <li><a class="section-main" href="/about">ABOUT</a></li>
+				  <li><a class="section-main" href="/publication">PUBLICATIONS</a></li>
+				  <li><a class="section-main" href="/event">EVENTS</a></li>
 				  <li><a class="section-main" href="#link">LINKS</a></li>
 				  <li><a class="section-main" href="#contact">CONTACT</a></li>
 				 
@@ -169,7 +168,7 @@
 				</div>
 				</div>
 				
-				<a href="" style="margin-left:auto; color:rgb(27, 174, 174)">>>>Learn more</a>
+				<a href="/publication" class="learn-more">>>>Learn more</a>
 		</section>
 
 
@@ -177,24 +176,7 @@
 
 
 		<section id="event" class="preview">
-			<script>
-				function scrollPreviewContent() {
-					const previewContent = document.querySelector('#event .preview-content');
-					const scrollStep = 10; // The distance to scroll in each animation frame
-					let scrollAmount = 0; // The current scroll amount
-					
-					function scrollStepFrame() {
-						scrollAmount += scrollStep;
-						previewContent.scrollLeft += scrollStep;
-						
-						if (scrollAmount < 150) {
-						requestAnimationFrame(scrollStepFrame);
-						}
-					}
-					
-					scrollStepFrame();
-					}
-			</script>
+			
 			<h2 class="box-title">Events</h2>
 			  <hr class="hr-yellow">
 	
@@ -262,16 +244,9 @@
 			 
 			</div>	
 
-		<div id = "scroll-button-2" class="scroll-button" onclick="scrollPreviewContent()" >
-			<svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-			  <path d="M0 0h24v24H0z" fill="none"/>
-			  <path d="M10 17l5-5-5-5v10z"/>
-			</svg>
-		</div>
 
-	 
 		</div>
-			 <a href="" style="margin-left:auto; color:rgb(27, 174, 174)">>>>Learn more</a>
+		<a href="/publication" class="learn-more">>>>Learn more</a>
   </section>
 
 
@@ -420,61 +395,61 @@
 						const add_form = document.getElementById(`add-form-wrapper`)
 						add_form.style.display = 'none';
 				}
-						const addButton = document.getElementById('add-button');
-						const addForm = document.getElementById('add-form-wrapper');
-						addButton.addEventListener('click', () => {
-						addForm.style.display = addForm.style.display === 'none' ? 'block' : 'none';
+					const addButton = document.getElementById('add-button');
+					const addForm = document.getElementById('add-form-wrapper');
+					addButton.addEventListener('click', () => {
+					addForm.style.display = addForm.style.display === 'none' ? 'block' : 'none';
 
-						});
+					});
 
-						
-						const form = document.getElementById("add-form");
 					
-						form.addEventListener('submit', async (event) => {
-						event.preventDefault();
-
-						const token = await getToken();
-						const username = await getUsername();
-
-						const requestBody = {
-							"username": username,
-							"token": token,
-							"data_center": document.getElementById('data-center-select').value,
-							"environment": document.getElementById('environment-select').value,
-							"switch_Model": document.getElementById('model').value,
-							'S/N': document.getElementById('sn').value,
-							"hostname": document.getElementById('hostname').value,
-							"status": document.getElementById('status').value
-						};
-
-						try {
-							await addItem(requestBody);
-							console.log('Record added');
-							addForm.style.display = 'none';
-							retrieveInventory();
-						} catch (error) {
-							console.error('Error adding record:', error);
-						}
-						});
-
-						async function addItem(requestBody) {
-						const response = await fetch('/addItem', {
-							method: 'POST',
-							headers: {
-							'Content-Type': 'application/json',
-							},
-							body: JSON.stringify(requestBody),
-						});
+					const form = document.getElementById("add-form");
 				
+					form.addEventListener('submit', async (event) => {
+					event.preventDefault();
 
-						if (!response.ok) {
-							throw new Error('Failed to add record');
-						}
+					const token = await getToken();
+					const username = await getUsername();
 
-						const data = await response.json();
-						window.alert(data.message)
-						return data;
-						}
+					const requestBody = {
+						"username": username,
+						"token": token,
+						"data_center": document.getElementById('data-center-select').value,
+						"environment": document.getElementById('environment-select').value,
+						"switch_Model": document.getElementById('model').value,
+						'S/N': document.getElementById('sn').value,
+						"hostname": document.getElementById('hostname').value,
+						"status": document.getElementById('status').value
+					};
+
+					try {
+						await addItem(requestBody);
+						console.log('Record added');
+						addForm.style.display = 'none';
+						retrieveInventory();
+					} catch (error) {
+						console.error('Error adding record:', error);
+					}
+					});
+
+					async function addItem(requestBody) {
+					const response = await fetch('/addItem', {
+						method: 'POST',
+						headers: {
+						'Content-Type': 'application/json',
+						},
+						body: JSON.stringify(requestBody),
+					});
+			
+
+					if (!response.ok) {
+						throw new Error('Failed to add record');
+					}
+
+					const data = await response.json();
+					window.alert(data.message)
+					return data;
+					}
 
 			</script>
 		</section>

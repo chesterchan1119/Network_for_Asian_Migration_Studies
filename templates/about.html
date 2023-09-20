@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="decription" content="NAMS">
+	
+		<title>Research Network/Events</title>
+		<!-- Google font package -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<!-- Google font types + just add the new font below  -->
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Barlow&family=PT+Sans&family=Raleway:wght@200&display=swap" rel="stylesheet">
+		
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+
+	<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css">
+	
+	<!--My CSS-->
+		<link rel="stylesheet" type="text/css" href="../statics/style.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../statics/style.css') }}">
+	</head>
+	<body>
+		<header>
+			<nav>
+				<!-- <h1><a href="#showcase">NAMS</a></h1> -->
+				<img src="./statics/images/namsIcon.jpeg" alt="" >
+				<input type="checkbox" id="menu-toggle">
+    			<label for="menu-toggle" class="menu-icon">&#9776;</label>
+				<ul>
+				<li class="search-bar">
+					<input type="text" placeholder="Search">
+					<button><i class="fas fa-search"></i></button>
+				  </li>
+				  <li ><a class="section-main" href="/">HOME</a></li>
+				  <li><a class="section-main" href="/about">ABOUT</a></li>
+				  <li><a class="section-main" href="/publication">PUBLICATIONS</a></li>
+				  <li><a class="section-main" href="/event">EVENTS</a></li>
+				  <li><a class="section-main" href="#link">LINKS</a></li>
+				  <li><a class="section-main" href="/#contact">CONTACT</a></li>
+				 
+				</ul>
+			  </nav>
+	
+		</header>
+    <br>
+    <br>
+    <br>
+	<style>
+		.cm-row{
+			display: flex;
+			flex-direction: row;
+		
+			flex-wrap: 1;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.cm{
+			margin-right:5px;
+		}
+		.cm-pic{
+			box-sizing: border-box;
+			margin: 0px 0px 12px;
+			min-width: 300px;
+			max-width: 30%;
+			height: auto;
+			border-radius: 10px;
+		}
+		.cm-name{
+			box-sizing: border-box;
+			margin: 0px;
+			min-width: 0px;
+			color: rgb(68, 74, 84);
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 22px;
+		}
+		.cm-title{
+			box-sizing: border-box;
+			margin: 0px;
+			min-width: 0px;
+			color: rgb(68, 74, 84);
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 22px;
+		}
+	</style>
+
+	<section id="about">
+		<div class="boxes-title">
+			<h2>About</h2>
+			
+		</div>
+		<div class="about-nb-container">
+			<div class="about-left">
+				<img src="./statics/images/namsIcon.jpeg" alt="My Picture">
+			</div>
+			<br>
+			<div class="about-right container">
+				
+					<dl>This network aims to connect people and researchers with interest and expertise
+						in Asian migration studies. We welcome both institutional and independent
+						scholars to join and coordinate efforts in organizing events that enhance
+						exchange of knowledge concerning Asian migration studies and publicize most
+						updated research findings related to Asian migration.
+					</dl>
+			</div>
+		</div>
+	</section>
+	<br>
+	<br>
+	<section id="characters"> 
+		<div class="cm-row">
+			<div class="cm">
+				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<div color="text2" font-size="s" font-weight="500" class="cm-name">Yuk Wah Chan</div>
+				<div color="text2" font-size="s" class="cm-title">Associate Professor, City University of Hong Kong </div>
+			</div>
+			<div class="cm">
+				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<div color="text2" font-size="s" font-weight="500" class="cm-name">Nicola Piper</div>
+				<div color="text2" font-size="s" class="cm-title">Professor, Queen Mary University of London </div>
+			</div>
+			<div class="cm">
+				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<div color="text2" font-size="s" font-weight="500" class="cm-name">Biao Xiang, Professor</div>
+				<div color="text2" font-size="s" class="cm-title">Max Planck Institute for Social Anthropology </div>
+			</div>
+			<div class="cm">
+				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<div color="text2" font-size="s" font-weight="500" class="cm-name">Brenda S. A. Yeoh</div>
+				<div color="text2" font-size="s" class="cm-title">Professor, National University of Singapore</div>
+			</div>
+		</div>
+
+
+	</section>
+	<br>
+	<br>
+
+
+
+	<footer>
+        <div class="nb-container">
+          <p>Copyright &copy; 2023 - Network for Asian Migration Studies</p>
+        </div>
+        <div class="icon"> 
+          <i class="fab fa-github-square fa-2x" onclick="location.href=''"></i>
+          <i class="fab fa-brands fa-linkedin fa-2x" onclick="location.href=''"></i>
+        </div>
+        
+      </footer>
+	</body>

@@ -12,5 +12,17 @@ app.secret_key = "the secret key"
 def index():
     return render_template("index.html")
 
+@app.route('/publication', methods=['GET'])
+def get_publication():
+    return render_template("publication.html")
+
+@app.route('/event', methods=['GET'])
+def get_event():
+    return render_template("event.html")
+
+@app.route('/about', methods=['GET'])
+def get_about():
+    return render_template("about.html")
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5500)
