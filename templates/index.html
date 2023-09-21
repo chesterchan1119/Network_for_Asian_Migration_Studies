@@ -302,10 +302,10 @@
 				<!-- First row -->
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
-					  <label for="email" class="form-label">Member Type</label>
+					  <label for="member" class="form-label">Member Type</label>
 					</div>
 					<div class="col-md-9">
-					  <select id="environment-select" name="Environment">
+					  <select id="member-select" name="member">
 						<option value="" selected disabled>Select an member type</option>
 						<option value="Member">Member</option>
 						<option value="coreMember">Core Member</option>
@@ -316,47 +316,47 @@
 
 				<div class="row mb-3 align-items-center">
 				  <div class="col-md-3">
-					<label for="name" class="form-label">Last Name</label>
+					<label for="lastName" class="form-label">Last Name</label>
 				  </div>
 				  <div class="col-md-9">
-					<input type="text" class="form-control" id="model">
+					<input type="text" class="form-control" id="lastName" name="lastName">
 				  </div>
 				</div>
 
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
-					  <label for="name" class="form-label">First Name</label>
+					  <label for="firstName" class="form-label">First Name</label>
 					</div>
 					<div class="col-md-9">
-					  <input type="text" class="form-control" id="model">
+					  <input type="text" class="form-control" id="firstName" name="firstName">
 					</div>
 				</div>
 
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
-					  <label for="name" class="form-label">Affiliation</label>
+					  <label for="affiliation" class="form-label">Affiliation</label>
 					</div>
 					<div class="col-md-9">
-					  <input type="text" class="form-control" id="model">
+					  <input type="text" class="form-control" id="affiliation" name="affiliation">
 					</div>
 				</div>
 
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
-					  <label for="name" class="form-label">Email</label>
+					  <label for="email" class="form-label">Email</label>
 					</div>
 					<div class="col-md-9">
-					  <input type="text" class="form-control" id="model">
+					  <input type="text" class="form-control" id="email" name="email">
 					</div>
 				</div>
 		  
 
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
-					  <label for="email" class="form-label">Title</label>
+					  <label for="title" class="form-label">Title</label>
 					</div>
 					<div class="col-md-9">
-					  <select id="environment-select" name="Environment">
+					  <select id="title-select" name="title">
 						<option value="" selected disabled>Select a title</option>
 						<option value="Professor">Professor</option>
 						<option value="Dr">Dr.</option>
@@ -371,7 +371,7 @@
 					<label for="phoneNumber" class="form-label">Phone Number</label>
 				  </div>
 				  <div class="col-md-9">
-					<input type="text" class="form-control" id="phoneNumber">
+					<input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
 				  </div>
 				</div>
 		  
@@ -393,8 +393,7 @@
 					</div>
 				  </div>
 		  
-				
-				<button type="submit" class="btn btn-primary">Submit</button>
+				  <div class="submit"><a type="submit" class="btn btn-primary" onclick="sendForm()">Submit</a></div>
 			  </form>
 			</div>
 		
@@ -413,54 +412,57 @@
 
 					});
 
-					
-					const form = document.getElementById("add-form");
-				
-					form.addEventListener('submit', async (event) => {
-					event.preventDefault();
 
-					const token = await getToken();
-					const username = await getUsername();
 
-					const requestBody = {
-						"username": username,
-						"token": token,
-						"data_center": document.getElementById('data-center-select').value,
-						"environment": document.getElementById('environment-select').value,
-						"switch_Model": document.getElementById('model').value,
-						'S/N': document.getElementById('sn').value,
-						"hostname": document.getElementById('hostname').value,
-						"status": document.getElementById('status').value
-					};
+					(function () {
+							emailjs.init("wXmnoazYpMuPBt7EW");
+					})();
 
-					try {
-						await addItem(requestBody);
-						console.log('Record added');
-						addForm.style.display = 'none';
-						retrieveInventory();
-					} catch (error) {
-						console.error('Error adding record:', error);
-					}
-					});
-
-					async function addItem(requestBody) {
-					const response = await fetch('/addItem', {
-						method: 'POST',
-						headers: {
-						'Content-Type': 'application/json',
-						},
-						body: JSON.stringify(requestBody),
-					});
+					function sendForm() {
 			
+						console.log("Sent!!!!")
 
-					if (!response.ok) {
-						throw new Error('Failed to add record');
-					}
+						// Get the form element
+						const add_form = document.getElementById('add-form');
 
-					const data = await response.json();
-					window.alert(data.message)
-					return data;
-					}
+						// Get the input values
+						var memberType = add_form.querySelector('#member-select').value;
+						var lastName = add_form.querySelector('#lastName').value;
+						var firstName = add_form.querySelector('#firstName').value;
+						var affiliation = add_form.querySelector('#affiliation').value;
+						var email = add_form.querySelector('#email').value;
+						var title = add_form.querySelector('#title-select').value;
+						var phoneNumber = add_form.querySelector('#phoneNumber').value;
+						// var publicationFile = add_form.querySelector('#publication').files[0];
+						console.log("it's okay defining the form values")
+						emailjs
+							.send("service_namsnetwork", "template_namsnetworkjoin", {
+							memberType: memberType,
+							from_name: firstName + " " + lastName,
+							affiliation: affiliation,
+							to_name: "NAMS Research Network",
+							from_email: email,
+							title: title,
+							to_email: "namsmigration@gmail.com",
+							phoneNumber: phoneNumber,
+							lastName:lastName,
+							firstName:firstName,
+							// publicationFile: publicationFile,
+							reply_to: email
+							}, "wXmnoazYpMuPBt7EW")
+							.then(
+							() => {
+								alert("Thank you for your application. We'll get back to you very soon");
+								// add_form.reset();
+							},
+							(error) => {
+								console.error(error);
+								alert("Ahh, something went wrong. Please try again.");
+							}
+							);
+						}
+	
+				
 
 			</script>
 		</section>
@@ -496,16 +498,13 @@
 				})();
 
 				function emailAlert() {
-					const serviceID = "service_namsnetwork";
-					const templateID = "template_61b203a";
-
-					console.log(serviceID)
-					console.log(templateID)
+			
 					const contactForm = document.getElementById('contactUs')
 					var subject = contactForm.querySelector('#subject').value;
 					var name = contactForm.querySelector('#name').value;
 					var email = contactForm.querySelector('#email').value;
 					var message = contactForm.querySelector('textarea[name="message"]').value;
+					
 					emailjs.send('service_namsnetwork','template_61b203a',
 					{
 					from_name: name + "<" + email + ">",
@@ -518,6 +517,7 @@
 					.then(
 						() => {
 						alert("Thank you. I will get back to you as soon as possible.");
+						contactForm.reset();
 						},
 						(error) => {
 						console.error(error);
