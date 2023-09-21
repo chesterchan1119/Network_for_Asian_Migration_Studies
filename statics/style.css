@@ -119,8 +119,9 @@ body {
     color:rgb(27, 174, 174)
 }
 
-
-
+#site-logo:hover {
+  cursor: pointer;
+}
 .search-bar {
     display: flex;
     align-items: center;
