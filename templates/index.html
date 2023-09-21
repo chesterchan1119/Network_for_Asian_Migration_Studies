@@ -298,7 +298,7 @@
 		<div class="modal" id="add-form-wrapper" style="display:none;">
 			<div class="container">
 			  <span class="close" title="Close Modal" onclick="closeSubWindow()">×</span>
-			  <form id="add-form">
+			  <form id="add-form" enctype="multipart/form-data" >
 				<!-- First row -->
 				<div class="row mb-3 align-items-center">
 					<div class="col-md-3">
@@ -418,25 +418,29 @@
 							emailjs.init("wXmnoazYpMuPBt7EW");
 					})();
 
-					function sendForm() {
-			
-						console.log("Sent!!!!")
+				function sendForm() {
+					console.log("Sent!!!!")
 
-						// Get the form element
-						const add_form = document.getElementById('add-form');
+					// Get the form element
+					const add_form = document.getElementById('add-form');
 
-						// Get the input values
-						var memberType = add_form.querySelector('#member-select').value;
-						var lastName = add_form.querySelector('#lastName').value;
-						var firstName = add_form.querySelector('#firstName').value;
-						var affiliation = add_form.querySelector('#affiliation').value;
-						var email = add_form.querySelector('#email').value;
-						var title = add_form.querySelector('#title-select').value;
-						var phoneNumber = add_form.querySelector('#phoneNumber').value;
-						// var publicationFile = add_form.querySelector('#publication').files[0];
-						console.log("it's okay defining the form values")
-						emailjs
-							.send("service_namsnetwork", "template_namsnetworkjoin", {
+					// Get the input values
+					var memberType = add_form.querySelector('#member-select').value;
+					var lastName = add_form.querySelector('#lastName').value;
+					var firstName = add_form.querySelector('#firstName').value;
+					var affiliation = add_form.querySelector('#affiliation').value;
+					var email = add_form.querySelector('#email').value;
+					var title = add_form.querySelector('#title-select').value;
+					var phoneNumber = add_form.querySelector('#phoneNumber').value;
+					var publicationFile = add_form.querySelector('#publication').files[0];
+					console.log("it's okay defining the form values")
+
+					if (publicationFile) {
+						// File is present, proceed with sending the form
+						var reader = new FileReader();
+						reader.onload = function(event) {
+						var pdfData = event.target.result;
+						emailjs.send("service_namsnetwork", "template_namsnetworkjoin", {
 							memberType: memberType,
 							from_name: firstName + " " + lastName,
 							affiliation: affiliation,
@@ -445,23 +449,28 @@
 							title: title,
 							to_email: "namsmigration@gmail.com",
 							phoneNumber: phoneNumber,
-							lastName:lastName,
-							firstName:firstName,
-							// publicationFile: publicationFile,
+							lastName: lastName,
+							firstName: firstName,
+							content: pdfData,
 							reply_to: email
-							}, "wXmnoazYpMuPBt7EW")
-							.then(
-							() => {
-								alert("Thank you for your application. We'll get back to you very soon");
-								// add_form.reset();
-							},
-							(error) => {
-								console.error(error);
-								alert("Ahh, something went wrong. Please try again.");
-							}
-							);
-						}
-	
+						}, "wXmnoazYpMuPBt7EW")
+							.then(() => {
+							alert("Thank you for your application. We'll get back to you very soon");
+							add_form.reset();
+							location.reload();
+							})
+							.catch((error) => {
+							console.error(error);
+							alert("Ahh, something went wrong. Please try again.");
+							});
+						};
+						reader.readAsDataURL(publicationFile);
+					} else {
+						// File is not selected
+						console.error("No file selected");
+						alert("Please select a PDF file");
+					}
+					}
 				
 
 			</script>
