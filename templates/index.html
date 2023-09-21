@@ -21,11 +21,22 @@
 
 	<!-- Font Awesome -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/font-awesome/css/all.css"> -->
 	
 	<!--My CSS-->
 		<link rel="stylesheet" type="text/css" href="../statics/style.css">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='../statics/style.css') }}">
+
+
+	<!-- emailjs -->
+	<script
+	type="text/javascript"
+	src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+	></script>
+		
+
+
+
 	</head>
 	<body>
 		<header>
@@ -461,7 +472,7 @@
 				<h2 class="box-title">Contact Us</h2>
 
 				<hr class="hr-yellow">
-				<form method = "post" action = "">
+				<form  id="contactUs" method="POST" enctype="multipart/form-data">
 					
 					<div class="form-nb-container">
 						
@@ -469,17 +480,54 @@
 							<h3>Feel free to tell us your enquires</h3>
 						</div>
 						<div class="form-right">
-							<input type="text" id="name" placeholder="Your Name*">
-							<input type="text" id="email" name="email"placeholder="Your Email*">
-							<textarea  type="textarea" placeholder="Your Message*"></textarea>
+							<input type="text" id="subject" name="subject" placeholder="Subject*">
+							<input type="name" id="name" name="name" placeholder="Your Name*">
+							<input type="email" id="email" name="email"placeholder="Your Email*">
+							<textarea  type="textarea"  name ="message" placeholder="Your Message*"></textarea>
 						</div>
 						
 					</div>
-					
-			  </form>
-			  <div class="submit"><a href="" class="btn btn-secondary">Send Message</a></div>
-			  
+					<div class="submit"><a type="submit" class="btn btn-secondary" onclick="emailAlert()">Send Message</a></div>
+				</form>
 			</div>
+			<script>
+				(function () {
+					emailjs.init("wXmnoazYpMuPBt7EW");
+				})();
+
+				function emailAlert() {
+					const serviceID = "service_namsnetwork";
+					const templateID = "template_61b203a";
+
+					console.log(serviceID)
+					console.log(templateID)
+					const contactForm = document.getElementById('contactUs')
+					var subject = contactForm.querySelector('#subject').value;
+					var name = contactForm.querySelector('#name').value;
+					var email = contactForm.querySelector('#email').value;
+					var message = contactForm.querySelector('textarea[name="message"]').value;
+					emailjs.send('service_namsnetwork','template_61b203a',
+					{
+					from_name: name + "<" + email + ">",
+					to_name: "NAMS Research Network",
+					from_email: email,
+					to_email: "namsmigration@gmail.com",
+					message: message,
+					},
+					"wXmnoazYpMuPBt7EW")
+					.then(
+						() => {
+						alert("Thank you. I will get back to you as soon as possible.");
+						},
+						(error) => {
+						console.error(error);
+						alert("Ahh, something went wrong. Please try again.");
+						}
+					);
+				}
+		
+
+			</script>
 			<br>
 			<h4> Email: namsmigration@gmail.com | Tel: 852-2766-6072</h4>
 		</section>

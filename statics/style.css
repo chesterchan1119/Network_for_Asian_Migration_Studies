@@ -621,6 +621,24 @@ input[type=text], select {
     font-size: 15px;
     display: flex;
 }
+input[type=name], select {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 50px;
+  width: 70%; 
+  margin:20px 0px 20px 60px;
+  font-size: 15px;
+  display: flex;
+}
+input[type=email], select {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 50px;
+  width: 70%; 
+  margin:20px 0px 20px 60px;
+  font-size: 15px;
+  display: flex;
+}
 
 textarea[type=textarea], select {
     border: 1px solid #ccc;
