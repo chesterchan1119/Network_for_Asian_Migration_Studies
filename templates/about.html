@@ -51,22 +51,41 @@
     <br>
     <br>
 	<style>
-		.cm-row{
+		.preview h2 {
+		  margin-bottom: 10px;
+		  min-width: 0px;
+		  font-family: inherit;
+		  font-weight: 700;
+		  font-size: 30px;
+		  max-width: 80%;
+		  color: rgb(90, 191, 206);
+		}
+	.cm-row {
 			display: flex;
-			flex-direction: row;
-		
-			flex-wrap: 1;
+			flex-wrap: wrap;
+			justify-content: flex-start;
 			margin-left: 10px;
-			margin-right: 10px;
-		}
-		.cm{
-			margin-right:5px;
-		}
+			margin-right: auto;
+			width: 100%;
+			overflow-x: auto;
+			}
+			.cm {
+			margin-right: 20px;
+			margin-top: 10px;
+			flex-basis: 50%; /* Set flex-basis to 50% for 2 elements per row on smaller screens */
+			}
+
+			@media (min-width: 768px) {
+			.cm {
+				flex-basis: 20%; /* Set flex-basis to 25% for 4 elements per row on larger screens */
+			}
+			}
+		
 		.cm-pic{
 			box-sizing: border-box;
 			margin: 0px 0px 12px;
-			min-width: 300px;
-			max-width: 30%;
+			min-width: 280px;
+			max-width: 20%;
 			height: auto;
 			border-radius: 10px;
 		}
@@ -90,14 +109,14 @@
 		}
 	</style>
 
-	<section id="about">
+	<section id="about"  class="preview">
 		<div class="boxes-title">
 			<h2>About</h2>
 			
 		</div>
 		<div class="about-nb-container">
 			<div class="about-left">
-				<img src="./statics/images/namsIcon.jpeg" alt="My Picture">
+				<img src="../statics/images/namsIcon.jpeg" alt="My Picture">
 			</div>
 			<br>
 			<div class="about-right container">
@@ -113,28 +132,30 @@
 	</section>
 	<br>
 	<br>
-	<section id="characters"> 
+	<section id="characters"  class="preview"> 
+		<h2 class="type-header">Core Members</h2>
 		<div class="cm-row">
 			<div class="cm">
-				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<img class="cm-pic" style="height: 450px;"src="../statics/images/ChanYukWah_profilepic.png">
 				<div color="text2" font-size="s" font-weight="500" class="cm-name">Yuk Wah Chan</div>
 				<div color="text2" font-size="s" class="cm-title">Associate Professor, City University of Hong Kong </div>
 			</div>
 			<div class="cm">
-				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
-				<div color="text2" font-size="s" font-weight="500" class="cm-name">Nicola Piper</div>
+				<img class="cm-pic"style="height: 450px;"src="../statics/images/NicolaPiper_Profilepic.png">
+				<div color="text2" font-size="s" font-weight="500"class="cm-name">Nicola Piper</div>
 				<div color="text2" font-size="s" class="cm-title">Professor, Queen Mary University of London </div>
 			</div>
 			<div class="cm">
-				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
-				<div color="text2" font-size="s" font-weight="500" class="cm-name">Biao Xiang, Professor</div>
-				<div color="text2" font-size="s" class="cm-title">Max Planck Institute for Social Anthropology </div>
-			</div>
-			<div class="cm">
-				<img class="cm-pic"src="https://res.cloudinary.com/preface/image/upload/w_1024,c_limit,f_auto/v1633826301/r2021/assets/images/founder.jpg">
+				<img class="cm-pic" style="height: 450px;"src="../statics/images/Brenda S A Yeoh_ProfilePic.jpeg">
 				<div color="text2" font-size="s" font-weight="500" class="cm-name">Brenda S. A. Yeoh</div>
 				<div color="text2" font-size="s" class="cm-title">Professor, National University of Singapore</div>
 			</div>
+			<div class="cm">
+				<img class="cm-pic" style="height: 450px;"src="../statics/images/BiaoXiang_Profilepic.png">
+				<div color="text2" font-size="s" font-weight="500" class="cm-name">Biao Xiang, Professor</div>
+				<div color="text2" font-size="s" class="cm-title">Max Planck Institute for Social Anthropology </div>
+			</div>
+		
 		</div>
 
 
