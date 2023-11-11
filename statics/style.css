@@ -206,7 +206,22 @@ body {
     display: none; /* Hide the menu icon by default */
   }
   
-
+.page-heading{
+ display: flex; 
+ flex-direction: column; 
+ margin-left:auto;
+  margin-right:30px;
+  text-transform: uppercase;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #333;
+  letter-spacing: 2px;
+  text-align: center;
+ 
+  
+}
+ 
 section#showcase {
     min-height: 650px;
     background-image: url('../statics/images/migration.jpg');
@@ -396,6 +411,7 @@ section#about .about-right{
 }
 
 .type-header{
+
     color: rgb(62, 176, 239);
     margin-top: 15px;
     margin-left: 20px;
@@ -412,7 +428,7 @@ section#about .about-right{
     top:0;
     position: relative;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 11px;
     color: rgb(62, 176, 239);
 }
 
@@ -461,6 +477,9 @@ section#publication .preview-description p{
     font-size: 12px;
 
 }
+.preview-description iframe{
+  min-width:360px;
+}
 
 
 
@@ -486,6 +505,7 @@ section#event .preview-form{
     max-width: 350px;
 }
 section#event .preview-description{
+  
     min-height: 200px;
     padding: 22px;
     text-align: left;
@@ -494,14 +514,17 @@ section#event .preview-description{
     flex-grow:1; /* allow it to grow and take up any remaining space in the .preview-form. */
 }
 
+section#event .preview-description h4{
+  font-size: 15px;
+}
 section#event .preview-description p{
    padding: 0px;
    margin: 0px;
+   font-weight: lighter;
+   font-size: 13px;
+  
 }
-section#event .preview-description p{
-    padding: 0px;
-    margin: 0px;
- }
+
 section#event .preview-picture {
     width: 100%;   
     height:50% ;
