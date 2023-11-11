@@ -344,7 +344,23 @@ section#about .about-right{
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0px 12px 18px -6px rgba(34, 56, 101, 0.04);
+   margin-right:5px;
 }
+
+/* Hover the preview form would turn darker */
+.preview-form:hover::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	pointer-events: none;
+  border-radius: 10px;
+}
+
 
 
   
@@ -359,7 +375,7 @@ section#about .about-right{
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 2px;
+    /* height: 2px; */
     background-color: rgb(97, 223, 255);
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
@@ -418,17 +434,19 @@ section#publication .preview-form{
 
 section#publication .preview-picture {
     width: 100%;   
-    height:100% ;
-    max-height: 330px;
+    height:100% ;    
+     /* min-height: 300px; */
+    /* max-height: 400px;  */
+   
 
 }
 /* The entire description session */
-section#publication .preview-description{
+/* section#publication .preview-description{
     min-height: 200px;
     padding: 22px;
     text-align: left;
     position: relative;
-}
+} */
 /* publication title */
 section#publication .preview-description h4{
     font-weight: bolder;
