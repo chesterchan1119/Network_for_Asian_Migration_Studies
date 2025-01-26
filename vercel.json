@@ -1,0 +1,10 @@
+{
+    "env": {
+      "FLASK_ENV": "production"
+    },
+    "routes": [
+      { "src": "/statics/(.*)", "dest": "/statics/$1" },
+      { "src": "/templates/(.*)", "dest": "/templates/$1" },
+      { "src": "/(.*)", "dest": "/api.py" }
+    ]
+  }
