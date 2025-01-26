@@ -1,7 +1,7 @@
 import os
 from flask import Flask, jsonify, request, render_template, session, redirect, url_for
 
-app = Flask(__name__, static_folder='../statics', static_url_path='/statics', template_folder='../templates')
+app = Flask(__name__, static_folder='statics', static_url_path='/statics', template_folder='templates')
 
 app.add_url_rule('/statics/<path:filename>', endpoint='statics', view_func=app.send_static_file)
 
